@@ -4,18 +4,51 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="Resources\" />
-    <Folder Include="UI\Consultas\" />
-    <Folder Include="UI\Reportes\" />
-    <Folder Include="UI\Registros\" />
+    <Compile Remove="DAL\Scripts\Migrations\20200211170211_inicial.cs" />
+    <Compile Remove="DAL\Scripts\Migrations\20200211170211_inicial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="380020.png" />
+    <None Remove="72668468-plus-icon-vector-illustration.jpg" />
+    <None Remove="Capture.PNG" />
+    <None Remove="UI\Consultas\1550004.png" />
+    <None Remove="UI\Consultas\pngtree-magnifying-glass-icon-png-image_1644200.jpg" />
+    <None Remove="UI\Registros\1550004.png" />
+    <None Remove="UI\Registros\72668468-plus-icon-vector-illustration.jpg" />
+    <None Remove="UI\Registros\961-9610665_icono-cuentas-por-pagar-icono-cuentas-por-pagar.png" />
+    <None Remove="UI\Registros\pngtree-magnifying-glass-icon-png-image_1644200.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DAL\Scripts\Migrations\" />
+    <Folder Include="Resources\" />
+    <Folder Include="UI\Reportes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="4.7.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="380020.png" />
+    <Resource Include="72668468-plus-icon-vector-illustration.jpg" />
+    <Resource Include="Capture.PNG" />
+    <Resource Include="UI\Consultas\1550004.png" />
+    <Resource Include="UI\Consultas\pngtree-magnifying-glass-icon-png-image_1644200.jpg" />
+    <Resource Include="UI\Registros\1550004.png" />
+    <Resource Include="UI\Registros\72668468-plus-icon-vector-illustration.jpg" />
+    <Resource Include="UI\Registros\961-9610665_icono-cuentas-por-pagar-icono-cuentas-por-pagar.png" />
+    <Resource Include="UI\Registros\pngtree-magnifying-glass-icon-png-image_1644200.jpg" />
   </ItemGroup>
 
 </Project>

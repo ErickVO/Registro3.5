@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Registro"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Inscripción de Personas" Height="450" Width="800">
+    <Grid Background="#FF8898B9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="383*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="110*"/>
+        </Grid.RowDefinitions>
+        <MediaElement HorizontalAlignment="Left" Height="100" Margin="576,50,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+        <Menu Margin="0,0,0,22" Grid.ColumnSpan="2">
+            <MenuItem x:Name="MenuRegistro" Header="Registrar"  FontWeight="Bold" >
+                <MenuItem x:Name="MenuRePersona" Header="Registrar Persona" Click="MenuRePersona_Click" />
+                <MenuItem x:Name="MenuReInscripcion" Header="Registrar Inscripcion" Click="MenuReInscripcion_Click" />
+                <MenuItem x:Name="MenuRePago" Header="Registrar Pago" Click="MenuRePago_Click"/>
+            </MenuItem>
+            <MenuItem Header="Consultar" FontWeight="Bold">
+                <MenuItem Header="Consultar Persona" Click="ConsultaPersona_Click"/>
+                <MenuItem Header="Consultar Inscripción" Click="ConsultaInscripcion_Click"/>
+            </MenuItem>
+        </Menu>
 
     </Grid>
 </Window>

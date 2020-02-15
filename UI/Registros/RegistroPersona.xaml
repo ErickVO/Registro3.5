@@ -1,0 +1,90 @@
+﻿<Window x:Class="Registro.UI.Registros.RegistroPersona"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Registro.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Persona" Height="450" Width="800">
+    <Grid x:Name="RegistroP" Background="#FF8898B9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="110*"/>
+        </Grid.RowDefinitions>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="33,44,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label Content="Teléfono:" HorizontalAlignment="Left" Margin="33,73,0,0" VerticalAlignment="Top" Grid.Row="1" FontWeight="Bold"/>
+        <Label Content="Cedula:" HorizontalAlignment="Left" Margin="33,37,0,0" VerticalAlignment="Top" Grid.Row="1" FontWeight="Bold"/>
+        <Label Content="Dirección:" HorizontalAlignment="Left" Margin="33,15,0,0" VerticalAlignment="Top" Grid.Row="2" FontWeight="Bold"/>
+        <Label Content="Fecha de Nacimiento:" HorizontalAlignment="Left" Margin="33,61,0,0" VerticalAlignment="Top" Grid.Row="2" FontWeight="Bold"/>
+        <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Margin="164,16,0,0"/>
+        <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Margin="164,4,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="TelefonoTextBox" HorizontalAlignment="Left" Margin="164,41,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="CedulaTextBox" HorizontalAlignment="Left" Margin="164,78,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="DireccionTextBox" HorizontalAlignment="Left" Margin="164,15,0,0" Grid.Row="2" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <Button x:Name="BtnNuevo" Content="Nuevo" Margin="20,157,659,0" Grid.Row="2" VerticalAlignment="Top" Height="44"  FlowDirection="LeftToRight" FontStretch="Normal" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold" BorderBrush="Black" Click="BtnNuevo_Click">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="72668468-plus-icon-vector-illustration.jpg">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform X="-0.3"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="182,157,0,0" Grid.Row="2" VerticalAlignment="Top" Height="44" Width="124"  HorizontalContentAlignment="Right" FontWeight="Bold" BorderBrush="Black" Click="BtnGuardar_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Registro;component/380020.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform X="-0.3"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="340,157,0,0" Grid.Row="2" VerticalAlignment="Top" Height="44" Width="124"  HorizontalContentAlignment="Right" FontWeight="Bold" BorderBrush="Black" Click="BtnEliminar_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Registro;component/Capture.PNG" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform X="-0.3"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="41" Width="94" FontWeight="Bold" HorizontalContentAlignment="Right" OpacityMask="Black" BorderBrush="Black" Grid.RowSpan="2" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="pngtree-magnifying-glass-icon-png-image_1644200.jpg">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform X="-0.3"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <DatePicker x:Name="FechaNacimientoDateTimePicker" Margin="164,61,444,183" Grid.Row="2"/>
+        <Label Content="Balance:" HorizontalAlignment="Left" Margin="33,110,0,0" Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="BalanceTextBox" HorizontalAlignment="Left" Margin="164,112,0,0" Grid.Row="2" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" IsReadOnly="True" IsHitTestVisible="False"/>
+
+
+
+
+    </Grid>
+</Window>
