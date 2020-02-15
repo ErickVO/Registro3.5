@@ -35,29 +35,15 @@ namespace Registro.UI.Registros
 
         private void BtnPagar_Click(object sender, RoutedEventArgs e)
         {
-        
-            int idP;
-            int.TryParse(InscripcionIdTextBox.Text, out idP);
-            Inscripcion inscripcion = new Inscripcion();
-            Personas persona = new Personas();
-
-            inscripcion = InscripcionBll.Buscar(idP);
-            persona = PersonasBll.Buscar(inscripcion.PersonaId);
+            int Id = Convert.ToInt32(InscripcionIdTextBox.Text);
+            int Monto = Convert.ToInt32(MontoPagarTextBox.Text);
 
             if (!Validar())
                 return;
 
-            int a = Convert.ToInt32(MontoPagarTextBox.Text);
+            InscripcionBll.Pago(Id, Monto);
 
-            if(a > 0 )
-            {
-                if(inscripcion != null)
-                {
-                    inscripcion.Balance = inscripcion.Balance - a;
-                    persona.Balance = persona.Balance - a;
-                }
-                    
-            }
+            
             Limpiar();
 
         }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
+
 namespace Registro.BLL
 {
     
@@ -21,7 +22,7 @@ namespace Registro.BLL
             {
                 if (db.Inscripciones.Add(inscripcion) != null)
                 {
-                    paso = db.SaveChanges() > 0;
+                    paso = db.SaveChanges() > 0 && AfectarBalanceP(inscripcion);
                 }
             }
             catch (Exception)
@@ -35,6 +36,52 @@ namespace Registro.BLL
             return paso;
         }
 
+        public static bool AfectarBalanceP(Inscripcion inscripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                db.Personas.Find(inscripcion.PersonaId).Balance += inscripcion.Balance;
+                paso = db.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return paso;
+        }
+
+        public static bool Pago (int id,int pago)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            Inscripcion inscripcion = new Inscripcion();
+
+            try
+            {
+
+                db.Inscripciones.Find(id).Balance -= pago;
+                inscripcion = db.Inscripciones.Find(id);
+                db.Personas.Find(inscripcion.PersonaId).Balance -= pago;
+                paso = (db.SaveChanges() > 0);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return paso;
+        }
 
         public static bool Modificar(Inscripcion inscripcion)
         {
@@ -44,7 +91,7 @@ namespace Registro.BLL
             try
             {
                 db.Entry(inscripcion).State = EntityState.Modified;
-                paso = (db.SaveChanges() > 0);
+                paso = (db.SaveChanges() > 0 && AfectarBalanceP(inscripcion));
             }
             catch (Exception)
             {
@@ -56,6 +103,30 @@ namespace Registro.BLL
             }
             return paso;
         }
+
+        public static bool EliminarBalance(int id, int IdPersona)
+        {
+            bool flag = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                db.Inscripciones.Find(id).Balance = 0;
+                db.Personas.Find(IdPersona).Balance = 0;
+                flag = (db.SaveChanges() > 0);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return flag;
+        }
+
 
         public static bool Eliminar(int id)
         {

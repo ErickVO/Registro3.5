@@ -10,6 +10,8 @@
   <ItemGroup>
     <Compile Remove="DAL\Scripts\Migrations\20200211170211_inicial.cs" />
     <Compile Remove="DAL\Scripts\Migrations\20200211170211_inicial.Designer.cs" />
+    <Compile Remove="Migrations\20200214212943_inicial.cs" />
+    <Compile Remove="Migrations\20200214212943_inicial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

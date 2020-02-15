@@ -43,33 +43,16 @@ namespace Registro.UI.Registros
         }
 
         private Inscripcion LlenaClase()
-        {
-            int id;
-            int.TryParse(IdPersonaTextBox.Text, out id);
-
-            Personas persona = new Personas();
+        { 
             Inscripcion inscripcion = new Inscripcion();
-
-             persona = PersonasBll.Buscar(id);
-
-            int a = Convert.ToInt32(MontoTextBox.Text);
-
-            if(persona != null){
-                
-                inscripcion.InscripcionId = Convert.ToInt32(IdTextBox.Text);
-                inscripcion.Fecha = FechaDatePicker.DisplayDate;
-                inscripcion.PersonaId = Convert.ToInt32(IdPersonaTextBox.Text);
-                inscripcion.Comentarios = ComentariosTextBox.Text;
-                inscripcion.Monto += a;
-                inscripcion.Balance = a + inscripcion.Balance;
-                persona.Balance = a + persona.Balance;
-                
-            }
-            else
-            {
-                MessageBox.Show("Esta persona no existe");
-            }
-                return inscripcion;
+            inscripcion.InscripcionId = Convert.ToInt32(IdTextBox.Text);
+            inscripcion.Fecha = FechaDatePicker.DisplayDate;
+            inscripcion.PersonaId = Convert.ToInt32(IdPersonaTextBox.Text);
+            inscripcion.Comentarios = ComentariosTextBox.Text;
+            inscripcion.Monto = Convert.ToInt32(MontoTextBox.Text);
+            inscripcion.Balance = Convert.ToInt32(BalanceTextBox.Text);           
+            
+            return inscripcion;
         }
 
 
@@ -87,6 +70,12 @@ namespace Registro.UI.Registros
         {
             Inscripcion inscripcion = InscripcionBll.Buscar((int)Convert.ToInt32(IdTextBox.Text));
             return (inscripcion != null);
+        }
+
+        private bool ExistePersonaBaseDatos()
+        {
+            Personas personas = PersonasBll.Buscar((int)Convert.ToInt32(IdPersonaTextBox.Text));
+            return (personas != null);
         }
 
 
@@ -184,13 +173,14 @@ namespace Registro.UI.Registros
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            int id;
+            int id,idP;
             int.TryParse(IdTextBox.Text, out id);
+            int.TryParse(IdPersonaTextBox.Text, out idP);
             Inscripcion inscripcion = new Inscripcion();
             Limpiar();
-
+            InscripcionBll.EliminarBalance(id, idP);
             if (InscripcionBll.Eliminar(id))
-
+                
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 
             else
